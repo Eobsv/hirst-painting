@@ -6,11 +6,22 @@ tim = t.Turtle()
 rgb_colors = []
 colors = colorgram.extract('image.jpg', 7 * 12)
 screen = t.Screen()
-screen.screensize(1000, 1000)
-tim.setpos(10, 10)
-tim.pensize(20)
+screen.screensize(canvwidth=250/2, canvheight=250/2)
+# screen.window_width()
+# screen.window_height()
+screen.colormode(255)
+tim.setpos(0, 0)
+tim.pensize(10)
+tim.penup()
 
-#
+
+# for color in colors:
+#     rgb_colors.append(color.rgb)
+#     r = color.rgb.r
+#     g = color.rgb.g
+#     b = color.rgb.b
+#     new_color = (r, g, b)
+#     rgb_colors.append(new_color)
 
 color_list = [(202, 164, 110), (240, 245, 241), (236, 239, 243), (149, 75, 50), (222, 201, 136), (53, 93, 123),
               (170, 154, 41), (138, 31, 20), (134, 163, 184), (197, 92, 73), (47, 121, 86), (73, 43, 35),
@@ -25,13 +36,18 @@ print("jestem przed randem")
 random.randint(0, len(color_list))
 print(color_list[random.randint(0, len(color_list))])
 print("jestem tu, przed petla")
-for i in range(10):
-    tim.setpos(i * 10, 0)
-    for j in range(10):
-        tim.setpos(i * 10, j * 10)
+for i in range(-5, 5):
+    print(tim.position())
+    tim.penup()
+    tim.setpos(i * 50, 0)
+    for j in range(-5, 5):
+        print(tim.position())
+        tim.setpos(i * 50, j * 50)
         color_randomizer = random.choice(color_list)
         print(color_randomizer)
         tim.color(color_randomizer)
-        tim.dot
-
+        tim.pendown()
+        tim.dot()
+        tim.penup()
+    tim.penup()
 screen.exitonclick
